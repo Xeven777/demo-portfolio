@@ -63,20 +63,5 @@ const ProjectPreview = ({
   );
 };
 
-const PreviewAnimation = {
-  initial: {
-    y: 30,
-    opacity: 0,
-    scale: 0.8,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
 
 export default ProjectPreview;
