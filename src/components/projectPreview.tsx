@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import arrow from "@/public/arrow.png";
+import BlurFade from "./magicui/blur-fade";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectPreviewProps {
   name?: string;
@@ -19,51 +19,47 @@ const ProjectPreview = ({
   textColor = "#f7f7f7",
 }: ProjectPreviewProps) => {
   return (
-    <motion.div
-      className={`hover:shadow-lg transition-all duration-500 h-[27rem] rounded-xl overflow-hidden`}
-      style={{ backgroundColor: `${bgColor}` }}
-      initial="initial"
-      whileInView="animate"
-      variants={PreviewAnimation}
-    >
+    <BlurFade delay={0.35} inView>
       <div
-        className="h-full w-full px-10 py-8 duration-500 transition-all hover:scale-105 "
-        style={{
-          backgroundImage: `url(${imageUrl})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
+        className={`hover:shadow-lg transition-all duration-500 h-[27rem] rounded-xl overflow-hidden`}
+        style={{ backgroundColor: `${bgColor}` }}
       >
-        <div className="flex justify-between">
-          <div className="max-w-[70%] ">
-            <h2
-              className="font-semibold text-2xl "
-              style={{ color: `${textColor}` }}
-            >
-              {name}
-            </h2>
-            <p
-              className="text-sm font-medium mt-3"
-              style={{ color: `${textColor}` }}
-            >
-              {description}
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <a href={link} target="__blank">
-              <img
-                src={arrow}
-                alt=""
-                width={50}
-                height={50}
-                className="rounded-full p-2 bg-slate-100 bg-opacity-40 backdrop-blur flex items-center cursor-pointer object-cover"
-              />
-            </a>
+        <div
+          className="h-full w-full px-10 py-8 duration-500 transition-all hover:scale-105 "
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="flex justify-between">
+            <div className="max-w-[70%] ">
+              <h2
+                className="font-semibold text-2xl "
+                style={{ color: `${textColor}` }}
+              >
+                {name}
+              </h2>
+              <p
+                className="text-sm font-medium mt-3"
+                style={{ color: `${textColor}` }}
+              >
+                {description}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <a href={link} target="__blank">
+                <ArrowUpRight
+                  size={50}
+                  className="rounded-full p-2 bg-slate-100 bg-opacity-40 backdrop-blur flex items-center cursor-pointer object-cover"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </motion.div>
+    </BlurFade>
   );
 };
 

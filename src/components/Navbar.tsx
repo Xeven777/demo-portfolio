@@ -8,7 +8,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="flex">
-        <a href="/about" className="hover:scale-105 transition-all font-medium">
+        <a href="/" className="hover:scale-105 transition-all font-medium">
           About
         </a>
       </div>

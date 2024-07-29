@@ -1,6 +1,9 @@
 import ReactLenis from "lenis/react";
 import MainHero from "./components/MainHero";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Projects from "./components/Projects";
+import { Testimonials } from "./components/Testimonials";
 // import ThemeTogglebutton from "./components/ui/theme-togggle";
 
 function App() {
@@ -12,7 +15,9 @@ function App() {
       </div> */}
         <Navbar />
         <MainHero />
-        
+        <Projects />
+        <Testimonials />
+        <Footer />
       </ReactLenis>
     </>
   );
