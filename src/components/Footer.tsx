@@ -1,6 +1,11 @@
 import BlurFade from "./magicui/blur-fade";
+import { useForm, ValidationError } from "@formspree/react";
+import { Button } from "./ui/button";
+import { Send } from "lucide-react";
 
 const Footer = () => {
+  const [state, handleSubmit] = useForm("xeojabyz");
+
   return (
     <section className="grid max-w-screen-lg grid-cols-1 md:grid-cols-[1fr_2fr] gap-4 mb-16 mx-auto">
       <BlurFade inView delay={0.3}>
@@ -38,6 +43,38 @@ const Footer = () => {
             Feel free to reach out for collaborations or just a friendly hello
             <br /> I'll try my best to get back to you!
           </p>
+          {state.succeeded ? (
+            <>
+              <p>Message received!!</p>
+            </>
+          ) : (
+            <form onSubmit={handleSubmit} className="w-full flex relative">
+              <textarea
+                title="message"
+                className="rounded-2xl p-3 w-full"
+                rows={3}
+                placeholder="drop your message..."
+                id="message"
+                name="message"
+              />
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
+              <Button
+                type="submit"
+                className="absolute rounded-2xl bottom-0 right-0"
+                disabled={state.submitting}
+              >
+                Send{" "}
+                <span>
+                  <Send size={16} />
+                </span>
+              </Button>
+            </form>
+          )}
+
           <div className="flex flex-col md:flex-row gap-6 items-center justify-self-center">
             <a
               href="mailto:anish7biswas@gmail.com"

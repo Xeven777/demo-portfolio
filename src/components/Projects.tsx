@@ -37,7 +37,7 @@ const Projects = () => {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map((project, index) => (
           <ProjectPreview
-            delay={index * 0.2}
+            delay={index * 0.1}
             key={index}
             name={project.name}
             link={project.link}
