@@ -7,7 +7,6 @@ interface ProjectPreviewProps {
   textColor?: string | undefined;
   description?: string;
   imageUrl?: string | undefined;
-  bgColor?: string;
 }
 
 const ProjectPreview = ({
@@ -15,28 +14,20 @@ const ProjectPreview = ({
   description = "Description",
   imageUrl,
   link = "#",
-  bgColor = "#e4e4e7",
   textColor = "#f7f7f7",
 }: ProjectPreviewProps) => {
   return (
     <BlurFade delay={0.35} inView>
       <div
-        className={`hover:shadow-lg transition-all duration-500 h-[27rem] rounded-xl overflow-hidden`}
-        style={{ backgroundColor: `${bgColor}` }}
+        className={`hover:shadow-lg group relative bg-primary/50 transition-all duration-500 h-[27rem] rounded-xl overflow-hidden`}
       >
-        <div
-          className="h-full w-full px-10 py-8 duration-500 transition-all hover:scale-105 "
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <div className="flex justify-between">
-            <div className="max-w-[70%] ">
+        <img src={imageUrl} alt={name} className="object-cover h-full w-full z-0 absolute top-0 left-0 group-hover:scale-110 transition-all duration-700" />
+        <div className="absolute bg-gradient-to-br from-black via-zinc-900 to-transparent -top-10 -left-16 h-52 blur-2xl w-3/4 z-30"></div>
+        <div className="h-full w-full px-10 py-8">
+          <div className="flex justify-between border">
+            <div className="max-w-[70%] z-50">
               <h2
-                className="font-semibold text-2xl "
+                className="font-semibold text-2xl z-50"
                 style={{ color: `${textColor}` }}
               >
                 {name}
@@ -52,7 +43,7 @@ const ProjectPreview = ({
               <a href={link} target="__blank">
                 <ArrowUpRight
                   size={50}
-                  className="rounded-full p-2 bg-slate-100 bg-opacity-40 backdrop-blur flex items-center cursor-pointer object-cover"
+                  className="rounded-full p-2 hover:rotate-45 transition-all duration-300 bg-slate-100 bg-opacity-40 backdrop-blur flex items-center cursor-pointer object-cover"
                 />
               </a>
             </div>
@@ -62,6 +53,5 @@ const ProjectPreview = ({
     </BlurFade>
   );
 };
-
 
 export default ProjectPreview;
