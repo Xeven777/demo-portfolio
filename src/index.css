@@ -28,7 +28,7 @@
   --ring: 228 93% 38%;
   --radius: 0.5rem;
 }
-.dark {
+/* .dark {
   --background: 228 50% 7%;
   --foreground: 228 5% 90%;
   --card: 228 50% 7%;
@@ -49,7 +49,7 @@
   --input: 228 30% 18%;
   --ring: 228 93% 38%;
   --radius: 0.5rem;
-}
+} */
 
 @layer base {
   * {
@@ -66,4 +66,8 @@ body {
 
 ::selection {
   @apply bg-primary text-primary-foreground;
+}
+.gradient {
+  background: radial-gradient(at 90% 91%, rgb(28, 233, 130) 0, transparent 98%),
+    radial-gradient(at 13% 39%, rgb(29, 221, 250) 0, transparent 47%);
 }

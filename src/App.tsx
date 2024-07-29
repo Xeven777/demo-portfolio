@@ -1,13 +1,19 @@
-import HeroSection from "./components/HeroSection";
-import ThemeTogglebutton from "./components/ui/theme-togggle";
+import ReactLenis from "lenis/react";
+import MainHero from "./components/MainHero";
+import Navbar from "./components/Navbar";
+// import ThemeTogglebutton from "./components/ui/theme-togggle";
 
 function App() {
   return (
     <>
-      <div className="fixed top-2 right-6">
+      <ReactLenis root>
+        {/* <div className="fixed top-2 right-6">
         <ThemeTogglebutton />
-      </div>
-      <HeroSection />
+      </div> */}
+        <Navbar />
+        <MainHero />
+        
+      </ReactLenis>
     </>
   );
 }
